@@ -14,10 +14,6 @@ def read_population_data(filename: str) -> List[Tuple[int, float, bool]]:
     
     try:
         with open(filename, 'r', encoding='utf-8') as file:
-            # Read header
-            header = file.readline().strip()
-            print(f"Reading: {header}")
-            
             # Read data
             for line in file:
                 line = line.strip()
@@ -68,8 +64,6 @@ def write_plot_data(filename: str, complete_data: List[Tuple[int, float, bool]])
                 data_type = "original" if has_data else "interpolated"
                 formatted_pop = f"{int(population):,}"
                 file.write(f"{year:<{year_width}}  {formatted_pop:>{pop_width}}  {data_type}\n")
-                
-        print(f"Plot data written to: {filename}")
     except Exception as e:
         print(f"Error writing plot data: {e}")
 
@@ -103,7 +97,5 @@ def write_interpolation_results(filename: str, complete_data: List[Tuple[int, fl
                     file.write(f"{year:<{year_width}}  {formatted_pop:>{pop_width}}\n")
             else:
                 file.write("No interpolation needed - all data available\n")
-                
-        print(f"Interpolation results written to: {filename}")
     except Exception as e:
         print(f"Error writing interpolation results: {e}")

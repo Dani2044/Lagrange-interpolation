@@ -52,5 +52,3 @@ def create_population_plot(complete_data: List[Tuple[int, float, bool]], output_
     plot_path = os.path.join(output_dir, "population_plot.png")
     plt.savefig(plot_path, dpi=300, bbox_inches='tight')
     plt.show()
-    
-    print(f"Population plot generated: {plot_path}")
